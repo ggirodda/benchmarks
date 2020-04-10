@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  mongodb:
+    image: mongo:4.2.0
+    volumes:
+      - db:/data/db
+    ports:
+      - "${DB__PORT}:27017"
+    restart: always
+    env_file: "./.env"
+
+volumes:
+  db:

@@ -1,0 +1,114 @@
+{
+  "env": {
+    "es6": true,
+    "mocha": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended",
+    "plugin:security/recommended",
+    "plugin:require-path-exists/recommended",
+    "prettier"
+  ],
+  "plugins": ["mocha", "security", "require-path-exists", "prettier"],
+  "globals": {
+    "document": false,
+    "navigator": false,
+    "window": false
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2018
+  },
+  "rules": {
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": ["const", "let", "var"],
+        "next": "*"
+      },
+      {
+        "blankLine": "any",
+        "prev": ["const", "let", "var"],
+        "next": ["const", "let", "var"]
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "cjs-export"
+      },
+      {
+        "blankLine": "any",
+        "prev": "cjs-export",
+        "next": "cjs-export"
+      },
+      {
+        "blankLine": "always",
+        "prev": "cjs-import",
+        "next": "*"
+      },
+      {
+        "blankLine": "any",
+        "prev": "cjs-import",
+        "next": "cjs-import"
+      }
+    ],
+    "prettier/prettier": ["error"],
+    "import/prefer-default-export": "off",
+    "security/detect-object-injection": "off",
+    "security/detect-non-literal-fs-filename": "off",
+    "security/detect-non-literal-require": "off",
+    "linebreak-style": ["error", "unix"],
+    "mocha/no-exclusive-tests": "error",
+    "no-await-in-loop": "off",
+    "no-process-exit": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "ignoreRestSiblings": true
+      }
+    ],
+    "no-use-before-define": "off",
+    "node/no-unpublished-require": ["off"],
+    "node/no-extraneous-require": [
+      "off",
+      {
+        "allowModules": ["csv-stringify", "#constants"]
+      }
+    ],
+    "require-atomic-updates": 0,
+    "no-prototype-builtins": 0,
+    "no-async-promise-executor": 0,
+    "global-require": ["error"],
+    "no-restricted-imports": ["error", "moment", "moment-timezone"],
+    "eqeqeq": ["error", "always"],
+    "no-var": "error",
+    "one-var": ["error", "never"],
+    "prefer-const": "error",
+    "quotes": ["error", "double"],
+    "require-jsdoc": "off",
+    "semi": ["error", "always"],
+    "valid-jsdoc": "off",
+    // With code/perf impacts
+    "no-eval": "error",
+    "no-return-await": "error",
+    "no-new-wrappers": "error",
+    // Code style improving lisibility
+    "lines-between-class-members": "error",
+    "no-unneeded-ternary": "error",
+    "object-shorthand": "error",
+    "prefer-template": "error"
+    // Code style "dealer's choice"
+    //    "no-else-return": "error",
+    //    "curly": "error",
+    //    "prefer-arrow-callback": "error",
+    //    "template-curly-spacing": "error"
+  }
+}
